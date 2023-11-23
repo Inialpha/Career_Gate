@@ -5,6 +5,7 @@ from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
+from flask_login import login_user, current_user
 from hashlib import md5
 from flask import session
 
@@ -26,23 +27,20 @@ def login():
 
     users = storage.all(User).values()
     for user in users:
-        print(user.email, data['email'])
-        print(user.password, md5(data['password'].encode()).hexdigest())
         if user.email == data['email']:
             if user.password == md5(data['password'].encode()).hexdigest():
+                login_user(user)
                 session.permanent = True
                 session['user'] = user.to_dict()
-                session.permanent = True
-                session.modified = True
-                print(session.__dict__)
+                print(str(current_user))
                 return jsonify({"status": "OK"}), 201
     abort(403, description="Not Found")
 
 
 @app_views.route('/homepage', methods=['POST', 'GET']
 , strict_slashes=False)
-def homepase():
-    print(session.__dict__)
+def homepage():
     session.permanent = True
-    return (session['user'])
+    print(str(current_user))
+    return str(current_user)
 
