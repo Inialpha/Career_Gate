@@ -5,6 +5,7 @@ from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
+from flask_login import login_user, current_user
 
 @app_views.route('/login', methods=['POST'], strict_slashes=False)
 @swag_from('documentation/user/post_user.yml', methods=['POST'])                                            
@@ -26,5 +27,6 @@ def login():
     for user in users:
         if user.email == data.email:
             if user.password == md5(data.password.encode()).hexdigest()
+            login_user(user)
             return make_response(jsonify(user.to_dict()), 201)
     abort(404, description="Not Found")
