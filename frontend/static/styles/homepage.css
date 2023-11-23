@@ -1,0 +1,15 @@
+.create, .view {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+article {
+  width: 45%;
+  border-radius: 12px;
+  background: #fff;
+  border-bottom: 5px solid #bbb;
+  font-weight: bold;
+  font-size: 30px;
+
+}

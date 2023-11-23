@@ -8,6 +8,7 @@
 
 {% block body %}
 {{ super() }}
+	<p class="error"></p>
   <form class="form">
 	<div>Firstname  
 	<input type="text" name="firstname" placeholder="Enter your first name">
@@ -22,8 +23,9 @@
 	<input type="text" name="password" placeholder="Enter your password">
 	</div>
   </form>
+
   <div class=signbutton>
-    <button class="signupbutton">Signup</button>
+	<button class="signupbutton">signup</button>
 
     <p>Already have an account?</p>
   <button class="loginbutton">Login here</button>
