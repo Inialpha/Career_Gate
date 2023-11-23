@@ -5,9 +5,11 @@ from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
+from hashlib import md5
+from flask import session
 
-@app_views.route('/login', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/user/post_user.yml', methods=['POST'])                                            
+
+@app_views.route('/login', methods=['POST', 'GET'], strict_slashes=False)
 def login():
     """
     login a user
@@ -19,12 +21,28 @@ def login():
 
     if 'email' not in data:
         abort(400, description="Missing email")
-        if 'password' not in data:
-            abort(400, description="Missing password")
+    if 'password' not in data:
+        abort(400, description="Missing password")
 
     users = storage.all(User).values()
     for user in users:
-        if user.email == data.email:
-            if user.password == md5(data.password.encode()).hexdigest()
-            return make_response(jsonify(user.to_dict()), 201)
-    abort(404, description="Not Found")
+        print(user.email, data['email'])
+        print(user.password, md5(data['password'].encode()).hexdigest())
+        if user.email == data['email']:
+            if user.password == md5(data['password'].encode()).hexdigest():
+                session.permanent = True
+                session['user'] = user.to_dict()
+                session.permanent = True
+                session.modified = True
+                print(session.__dict__)
+                return jsonify({"status": "OK"}), 201
+    abort(403, description="Not Found")
+
+
+@app_views.route('/homepage', methods=['POST', 'GET']
+, strict_slashes=False)
+def homepase():
+    print(session.__dict__)
+    session.permanent = True
+    return (session['user'])
+

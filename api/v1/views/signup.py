@@ -15,17 +15,24 @@ def signup():
         return "Signup"
 
     data = request.get_json()
-    if 'first_name' not in data:
-        abort(400, description="Missing first_name")
-    if 'last_name' not in data:
-        abort(400, description="Missing last_name")
     if not data:
-        abort(400, description="Not a JSON")
+        abort(401, description="Not a JSON")
+    if 'first_name' not in data:
+        abort(403, description="Missing first_name")
+    if 'last_name' not in data:
+        abort(403, description="Missing last_name")
     if 'email' not in data:
-        abort(400, description="Missing email")
+        abort(405, description="Missing email")
     if 'password' not in data:
-        abort(400, description="Missing password")
+        abort(406, description="Missing password")
+    #print("\n\n", data)
+    for user in storage.all(User).values():
+        if user.email == data['email']:
+            return jsonify({"status": "emailerror"}), 201
 
+    
+    print("\n\n", data)
+    inp = {'firstname': 'Inimfon ', 'lastname': 'Ebong ', 'email': 'ebonginimfon8@gmail.com', 'password': 'Test'}
     instance = User(**data)
     instance.save()
-    return make_response(jsonify(instance.to_dict()), 201)
+    return jsonify({"status": "OK"}), 201
