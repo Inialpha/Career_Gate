@@ -72,25 +72,26 @@ def post_user():
     return make_response(jsonify(instance.to_dict()), 201)
 
 
-@app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/users/<user_email>', methods=['PUT'], strict_slashes=False)
 @swag_from('documentation/user/put_user.yml', methods=['PUT'])
-def put_user(user_id):
+def put_user(user_email):
     """
     Updates a user
     """
-    user = storage.get(User, user_id)
 
-    if not user:
+    users = storage.all(User).values()
+    if not users:
         abort(404)
 
-    if not request.get_json():
+    data = request.get_json()
+    if not data:
         abort(400, description="Not a JSON")
 
     ignore = ['id', 'email', 'created_at', 'updated_at']
-
-    data = request.get_json()
-    for key, value in data.items():
-        if key not in ignore:
-            setattr(user, key, value)
-    storage.save()
-    return make_response(jsonify(user.to_dict()), 200)
+    for user in users:
+        if user.email == user_email:
+            for key, value in data.items():
+                if key not in ignore:
+                    setattr(user, key, value)
+                    storage.save()
+                    return make_response(jsonify(user.to_dict()), 200)

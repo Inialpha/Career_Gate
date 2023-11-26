@@ -9,3 +9,4 @@ from views.homepage import *
 from views.login import *
 from views.interviews import *
 from views.resume import *
+from views.users import *

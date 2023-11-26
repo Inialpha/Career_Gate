@@ -1,5 +1,16 @@
-$(function () {
+/*$(function () {
 	alert("homepage");
+	$('.createresume').on('click' function (item) {
+		item.preventDefault();
+		window.location = 'http://0.0.0.0:5000/createresume';
+	});
+
+	$('.bookinterview').on('click' function (item) {
+		item.preventDefault();
+		window.location = 'http://0.0.0.0:5000/bookinterview';
+	});
+
+
 	$.ajax({
 		url: "http://0.0.0.0:5001/api/v1/homepage",
 		contentType: "application/json",
@@ -18,4 +29,4 @@ $(function () {
 	});
 
 
-});
+});*/

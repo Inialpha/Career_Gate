@@ -7,30 +7,57 @@
 {% endblock head %}
 {% block body %}
 {{ super() }}
-<h1>Welcome to your number one career advancement platform.</h1>
-
+<h1>Welcome {{ user.first_name }} to your number one career advancement platform.</h1>
+{% if user.user_type == "client" %}
 <div class="create">
   <article id="createresume">
     <h2>Request a resume review</h2>
     <p>Get an expert review of your resume</p>
+    <a href="/createresume"><h3>Request</h3></a>
   </article>
 
   <article id="bookinterview">
     <h2>Book an interview</h2>
     <p>Get a one and one interview session with our expert</p>
+    <a href="/bookinterview"><h3>Book interview</h3></a>
   </article>
 </div>
 
 <div class="view">
   <article id="viewresume">
     <h2>My resume</h2>
-    <p>View your request</p>
+    <a href="/viewresume"><p>View your request</p></a>
   </article>
 
   <article id="viewinterview">
     <h2>My interviews</h2>
-    <p>View your interviews</p>
+    <a href="/viewinterview"><p>View your interviews</p></a>
   </article>
 </div>
+{% elif user.user_type == "admin" %}
+<div class="view_all">
+  <article id="view_all_resumes">
+    <h2>View  all resume requests</h2>
+    <p>View and review client resumes</p>
+    <a href="/allresume"><h3>Resumes</h3></a>
+  </article>
+  <article id="all_interview">
+    <h2>View interviews</h2>
 
+    <p>Schedule a one and one Interview for a client</p>
+    <a href="/allinterview"><h3>interviews</h3></a>
+  </article>
+</div>
+<div class="users">
+  <article id="viewusers">
+    <h2>Clients</h2>
+    <a href="/users"><p>View your request</p></a>
+  </article>
+  <article id="add_admin">
+
+    <h2>Add Admin</h2>
+    <a href="/admin"><p>Add new Administraror</p></a>
+  </article>
+</div>
+{% endif %}
 {% endblock body  %}

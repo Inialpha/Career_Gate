@@ -5,8 +5,8 @@ Contains the FileStorage class
 
 import json
 import models
+from models.base_model import BaseModel, Base
 from models.interview import Interview
-from models.base_model import BaseModel
 from models.resume import Resume
 from models.user import User
 from hashlib import md5

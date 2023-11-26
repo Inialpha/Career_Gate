@@ -33,6 +33,7 @@ def signup():
     
     print("\n\n", data)
     inp = {'firstname': 'Inimfon ', 'lastname': 'Ebong ', 'email': 'ebonginimfon8@gmail.com', 'password': 'Test'}
+    data['user_type'] = "admin"
     instance = User(**data)
     instance.save()
     return jsonify({"status": "OK"}), 201

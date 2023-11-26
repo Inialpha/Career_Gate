@@ -1,4 +1,4 @@
-.create, .view {
+.create, .view, .view_all, .users {
   width: 100%;
   display: flex;
   justify-content: space-between;

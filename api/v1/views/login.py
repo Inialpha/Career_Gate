@@ -9,7 +9,6 @@ from flask_login import login_user, current_user
 from hashlib import md5
 from flask import session
 
-
 @app_views.route('/login', methods=['POST', 'GET'], strict_slashes=False)
 def login():
     """
@@ -29,12 +28,8 @@ def login():
     for user in users:
         if user.email == data['email']:
             if user.password == md5(data['password'].encode()).hexdigest():
-                login_user(user)
-                session.permanent = True
-                session['user'] = user.to_dict()
-                print(str(current_user))
-                return jsonify({"status": "OK"}), 201
-    abort(403, description="Not Found")
+                return jsonify(user.to_dict()), 201
+    abort(404, description="Not Found")
 
 
 @app_views.route('/homepage', methods=['POST', 'GET']
