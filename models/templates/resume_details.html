@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/scripts/resume_details.js"></script>
+<link rel="stylesheet" href="../static/styles/homepage.css"/>
+{% endblock head %}
+{% block body %}
+{{ super() }}
+<h2>My Resume</h2>
+<div class="resume"></div>
+<input type="hidden" name="resume" value="{{ id }}">
+
+{% endblock body  %}
+</body>

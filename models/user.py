@@ -2,6 +2,7 @@
 """ holds class User"""
 
 import models
+from models import login_manager
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
@@ -10,6 +11,10 @@ from sqlalchemy.orm import relationship
 from hashlib import md5
 from flask_login import UserMixin
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    return models.storage.get(User, user_id)
 
 class User(BaseModel, Base, UserMixin):
     """Representation of a user """
@@ -21,7 +26,7 @@ class User(BaseModel, Base, UserMixin):
         last_name = Column(String(128), nullable=True)
         user_type = Column(String(45), default='client')
         interviews = relationship("Interview", backref="user")
-        resume = relationship("Resume", backref="user")
+        resumes = relationship("Resume", backref="user")
     else:
         email = ""
         password = ""
