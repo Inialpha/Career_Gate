@@ -5,16 +5,13 @@
 <script type="text/javascript" src="../static/scripts/admin.js"></script>
 <link rel="stylesheet" href="../static/styles/homepage.css"/>
 {% endblock head %}
-{% block body %}
+{% block content %}
 {{ super() }}
 <h2>Add Administrator</h2>
 <p>Enter the users email</p>
-<form class="admin">
+<form class="admin" action="{{ url_for('app_views.admin') }}" method="PUT">
   <input type="text" name="email">
   <p>Make sure the email is registerd as a reguler user</p>
   <input type="submit" value="Add">
-<input type="hidden" name="user_id" value="{{ user.id }}">
 
-
-{% endblock body  %}
-</body>
+{% endblock %}

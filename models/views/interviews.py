@@ -1,5 +1,5 @@
 from models.views import app_views
-from flask import render_template, request
+from flask import render_template, request, flash, redirect, url_for
 from flask_login import current_user, login_required
 import models
 
@@ -37,8 +37,23 @@ def interviews():
         return render_template('interviews.html', interviews=interviews)
 
 @app_views.route('/interview_details<id>', methods=['GET'], strict_slashes=True)
+@login_required
 def interview_details(id):
     """ get details of interview """
     from models.interview import Interview
-    interview = models.storage.get(Interview, id).values()
+    interview = models.storage.get(Interview, id)
     return render_template('interview_details.html', interview=interview)
+
+
+@app_views.route('/interview/<id>', methods=['POST', 'PUT'], strict_slashes=True)
+@login_required
+def update_interview(id):
+    """ update a resume """
+    from models.interview import Interview
+    interview = models.storage.get(Interview, id)
+    details = request.form['details']
+    interview.details = str(details)
+    interview.status = "Scheduled"
+    models.storage.save()
+    flash("Interview is successfully schedule", category='success')
+    return redirect(url_for('app_views.homepage'))

@@ -15,10 +15,8 @@ def users():
 @app_views.route('/admin', methods=['GET'], strict_slashes=True)
 def admin():
     """add a new admin"""
-    if user is None:
-        return redirect("/")
 
-    return render_template('admin.html', user=user)
+    return render_template('admin.html')
 
 @app_views.route('/user_details/<id>', methods=['GET'], strict_slashes=True)
 def user_details(id):
