@@ -1,0 +1,13 @@
+Flask
+Jinja2
+MarkupSafe
+mysql-connector-python
+mysqlclient
+pep8
+Pillow
+protobuf
+pycodestyle
+requests
+SQLAlchemy
+urllib3
+Werkzeug

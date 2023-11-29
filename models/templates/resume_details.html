@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="../static/styles/homepage.css"/>
+{% endblock head %}
+{{ super() }}
+{% block content %}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+  {% if current_user.user_type == "client" %}
+  <h2>My Resume</h2>
+  <h3><b>Requested on:</b> {{ resume.created_at }} </h3>
+  <h3><b>Status:</b> {{ resume.status }} </h3>
+  <h3><b>Link:</b> <a href="{{ resume.resume_link }}" class="btn btn-primary">Resume</a></h3>
+  {% if resume.status == "Reviewed" %}
+  <p> {{ resume.review }}</p>
+  {% endif %}
+  {% elif current_user.user_type == "admin" %}
+  <h3><b>Requested on:</b> {{ resume.created_at }} </h3>
+  <h3><b>Requested by:</b> {{ resume.user.first_name }}  {{ resume.user.last_name }} </h3>
+  <h3><b>Status:</b> {{ resume.status }} </h3>
+  <h3><b>Link:</b> <a href="{{ resume.resume_link }}" class="btn btn-primary">Resume</a></h3>
+  {% if resume.status == "Reviewed" %}
+  <p> {{ resume.review }} </p>
+  {% elif resume.status == "Pending" %}
+  <form id="review" action="{{ url_for('app_views.update_resume', id=resume.id) }}" method="POST">
+    <textarea name="content" rows="8" cols="20">
+    </textarea>
+    <br>
+    <input type="submit" value="Add Review">
+  </form>
+  {% endif %}
+  {% endif %}
+</div>
+{% endblock %}
