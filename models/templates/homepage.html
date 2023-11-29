@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/scripts/homepage.js"></script>
+<link rel="stylesheet" href="../static/styles/homepage.css"/>
+{% endblock head %}
+{% block content %}
+{{ super() }}
+<div class=" position-relative overflow-hidden text-center min-vh-100">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Welcome to your number one career advancement platform.</h1>
+  </div>
+{% if user.user_type == "client" %}
+<div class="row mx-md-n5 mb-6" style="margin-bottom: 40px;">
+  <div class="col px-md-5 mb-20">
+    <a href="{{ url_for('app_views.createresume') }}" class=" text-light btn btn-primary">
+
+      <h2>Resume</h2>
+    </a>
+    <h2>Request a resume review</h2>
+    <p>Get an expert review of your resume</p>
+  </div>
+  <div class="col px-md-5 mb-20">
+    <a href="{{ url_for('app_views.bookinterview') }}" class=" text-light btn btn-primary">
+      <h2>Interview</h2>
+    </a>
+    <h2>Book an Interview</h2>
+    <p>Get a one and one interview session with our expert</p>
+  </div>
+</div>
+<div class="row mx-md-n5 mb-6" style="margin-botto
+m: 40px;">
+  <div class="col px-md-5 mb-20">
+    <a href="{{ url_for('app_views.viewresumes') }}" class=" text-light btn btn-primary">
+      <h2>My Resume</h2>
+    </a>
+    <h2>My Resume</h2>
+    <p>View all your resume</p>
+  </div>
+
+  <div class="col px-md-5 mb-20">
+    <a href="{{ url_for('app_views.interviews') }}" class=" text-light btn btn-primary">
+    <h2>My Interviews</h2>
+    </a>
+    <h2>My Interviews</h2>
+    <p>View your interviews</p>
+  </div>
+</div>
+{% elif user.user_type == "admin" %}
+<div class="row mx-md-n5 mb-6" style="margin-bottom: 40px;">
+  <div class="col px-md-5 mb-20">
+	<a href="{{ url_for('app_views.viewresumes') }}" class=" text-light btn btn-primary" id="view_all_resumes">
+		<h2>Resume</h2>
+	  </a>
+    <h2>View  all resume requests</h2>
+    <p>View and review client resumes</p>
+  </div>
+  <div class="col px-md-5">
+    <a href="{{ url_for('app_views.interviews') }}" class="btn text-light btn-primary" id="all_interview">
+      <h2>Interviews</h2>
+    </a>
+      <h2>View interviews</h2>
+
+      <p>Schedule a one and one Interview for a client</p>
+  </div>
+</div>
+<div class="row  mb-20">
+  <div class="col px-md-5 mb-20" style="margin-bottom: 40px;">
+    <a href="{{ url_for('app_views.users') }}" class="btn text-light btn-primary">
+      <h2>Clients</h2>
+    </a>
+  </div>
+  <div class="col px-md-5">
+    <a href="{{ url_for('app_views.admin') }}" class="btn text-light btn-primary">
+
+      <h2>Add Admin</h2>
+    </a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
