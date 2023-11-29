@@ -1,5 +1,9 @@
 from models.views import app_views
+<<<<<<< HEAD
 from flask import render_template, redirect, request, flash, url_for
+=======
+from flask import render_template, redirect, request
+>>>>>>> 955a0fc (.)
 from flask_login import current_user, login_required
 import models
 
@@ -29,7 +33,11 @@ def viewresumes():
         return redirect("/")
     resume_list = []
     if user.user_type == 'client':
+<<<<<<< HEAD
         for resume in user.resumes:
+=======
+        for resume in user.resume:
+>>>>>>> 955a0fc (.)
             resume_list.append(resume)
         return render_template('viewresume.html', resumes=resume_list)
     else:
@@ -50,6 +58,7 @@ def resumes(id):
     resume = models.storage.get(Resume, id)
     return render_template('resume_details.html', resume=resume)
 
+<<<<<<< HEAD
 
 @app_views.route('/resumes/<id>', methods=['POST', 'PUT'], strict_slashes=True)
 @login_required
@@ -65,3 +74,5 @@ def update_resume(id):
     flash("Review is successfully added", category="success")
     return redirect(url_for('app_views.homepage'))
 
+=======
+>>>>>>> 955a0fc (.)
