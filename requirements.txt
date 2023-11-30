@@ -11,3 +11,9 @@ requests
 SQLAlchemy
 urllib3
 Werkzeug
+flask_bcrypt
+flask_login
+flask_wtf
+requests
+sqlalchemy
+mail_validator
