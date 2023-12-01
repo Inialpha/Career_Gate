@@ -19,6 +19,7 @@ def login():
         if user:
             if user.password == md5(password.encode()).hexdigest():
                 login_user(user)
+                flash("You are now logged in!", category='success')
                 return redirect("/homepage")
 
     return render_template('login.html', form=form)
@@ -28,4 +29,4 @@ def login():
 def logout():
     logout_user()
     flash("You have been logged out!", category='info')
-    return redirect(url_for("app_views.homepage"))
+    return redirect(url_for("app_views.landingpage"))
