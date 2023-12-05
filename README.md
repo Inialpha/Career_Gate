@@ -12,10 +12,10 @@ This project offers the Administrator the oppurtunity to recieve resume review r
 The project is divided into faces which include, Project approval 1, Project approval 2....
 
 Table of Content
-* [Research and Project Approval 1](## Research and Project Approval 1)
-* [Research and Project Approval 1](## Research and Project Approval 1)
-* [Build your portfolio project (Week 1): Making Progress](## Build your portfolio project (Week 1): Making Progress)
-* [Build your portfolio project (Week 2): MVP Complete](## Build your portfolio project (Week 2): MVP Complete)
+* [Research and Project Approval 1](#Research and Project Approval 1)
+* [Research and Project Approval 1](#Research and Project Approval 1)
+* [Build your portfolio project (Week 1): Making Progress](#Build your portfolio project (Week 1): Making Progress)
+* [Build your portfolio project (Week 2): MVP Complete](#Build your portfolio project (Week 2): MVP Complete)
 * [Environment](#environment)
 * [Installation](#installation)
 * [File Descriptions](#file-descriptions)
