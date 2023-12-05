@@ -14,8 +14,8 @@ The project is divided into faces which include, Project approval 1, Project app
 Table of Content
 * [Research and Project Approval 1](#Research-and-Project-Approval-1)
 * [Research and Project Approval 2](#Research-and-Project-Approval-1)
-* [Build your portfolio project (Week 1): Making Progress](#Build-your-portfolio-project-Week 1-Making-Progress)
-* [Build your portfolio project (Week 2): MVP Complete](#Build-your-portfolio-project-Week 2-MVP-Complete)
+* [Build your portfolio project (Week 1): Making Progress](#Build-your-portfolio-project-Week-1-Making-Progress)
+* [Build your portfolio project (Week 2): MVP Complete](#Build-your-portfolio-project-Week-2-MVP-Complete)
 * [Environment](#environment)
 * [Installation](#installation)
 * [File Descriptions](#file-descriptions)
