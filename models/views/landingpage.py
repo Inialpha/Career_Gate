@@ -6,4 +6,4 @@ def landingpage():
 
     if session.get('user', None):
         return redirect('/homepage')
-    return render_template('landingpage.html')
+    return render_template('index.html')
