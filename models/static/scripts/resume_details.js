@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
   const resume_id = $('input[name="resume"]').val()
   $.ajax({
     url: `http://0.0.0.0:5001/api/v1/resume/${resume_id}`,
@@ -16,4 +16,4 @@ $(function () {
   );
     }
   });
-});
+});*/
