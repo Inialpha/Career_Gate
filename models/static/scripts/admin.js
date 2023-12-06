@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
   alert("enter");
 
   $('.admin').submit(function (event) {
@@ -19,4 +19,4 @@ $(function () {
   });
 
   });
-});
+});*/

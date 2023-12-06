@@ -30,6 +30,7 @@ def admin():
                 models.storage.save()
                 flash("{} {} added as Administrator".format(user.first_name, user.last_name), category="success")
                 return redirect(url_for('app_views.homepage'))
+            flash("{} is not signed in".format(email), category="warning")
         return render_template('admin.html')
     return redirect(url_for('app_views.homepage'))
 

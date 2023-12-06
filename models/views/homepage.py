@@ -1,5 +1,5 @@
 from models.views import app_views
-from flask import render_template
+from flask import render_template, redirect, flash, url_for
 import requests
 from flask_login import current_user, login_required
 
@@ -9,6 +9,4 @@ from flask_login import current_user, login_required
 def homepage():
     """Every users homepage"""
     user = current_user
-    if user:
-        return render_template('homepage.html', user=user);
-    return "You are not logged in. Please login!"
+    return render_template('homepage.html', user=user);

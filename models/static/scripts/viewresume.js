@@ -1,5 +1,4 @@
-$(function () {
-  alert("enter");
+/*$(function () {
   const user_id = $('input[name="user_id"]').val()
   $.ajax({
     url: `http://0.0.0.0:5001/api/v1/users/${user_id}/resumes`,
@@ -28,4 +27,4 @@ $(function () {
     const id = $(this).data('id');
     window.location = `/resume/${id}`;
   });
-});
+});*/

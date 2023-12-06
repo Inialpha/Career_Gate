@@ -9,16 +9,13 @@ from models.views import app_views
 import models.views
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029594d'
-#db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
+#bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "app_views.login"
 login_manager.login_message_category = "info"
 
 from os import getenv
-#from models.views.landingpage import *
 app.register_blueprint(app_views)
 storage_t = getenv("STORAGE")
 
