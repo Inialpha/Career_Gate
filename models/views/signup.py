@@ -18,11 +18,11 @@ def signup():
             last_name = name[1]
 
         except IndexError:
-            flash("Please Enter full name", category="warning")
+            flash("Please Enter full name", category="red")
             return redirect(url_for('app_views.signup'))
-        #if password1 != password2:
-        #    flash("password fields must match", category="warning")
-        #    return redirect(url_for('app_views.signup'))
+        if password1 != password2:
+            flash("password fields must match", category="red")
+            return redirect(url_for('app_views.signup'))
 
         data = {'first_name': first_name, 'last_name': last_name,
                 'email': email, 'password': password1}
