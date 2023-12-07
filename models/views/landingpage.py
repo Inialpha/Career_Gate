@@ -4,6 +4,13 @@ from models.news import articles
 
 @app_views.route('/', methods=['GET'], strict_slashes=True)
 def landingpage():
+
+
+    if session.get('user', None):
+        return redirect('/homepage')
+    return render_template('index.html')
+
     
-    #return html.content
-    return render_template('landingpage.html', articles=articles)
+
+
+
