@@ -87,16 +87,16 @@
 
 .card:hover{
 
-    background-color:#0b2d49;
+    background-color:#016273;
 }
 button{
-    background-color: #0b2d49;
+    background-color: #016273;
     color: white;
 }
 .b{
     background-color: transparent;
-    border: 2px solid #0B2D49 ;
-    color: #0B2D49;
+    border: 2px solid #016273 ;
+    color: #016273;
 }
 .nbbb{
     background-color: transparent;
@@ -114,11 +114,11 @@ button:hover.nbbb{
 }
 button:hover.nbb{
     background-color:white;
-    color:#0B2D49;
+    color:#016273;
 }
 .card:hover  .nb{
     background-color: white !important;
-    color: #0b2d49;
+    color: #016273;
 }
 .card:hover  p{
    
@@ -135,7 +135,7 @@ button:hover.nbb{
    color: white;
 }
 .head{
-    color: #0b2d49;
+    color: #016273;
 }
 
 .non{
