@@ -10,6 +10,8 @@ class Interview(BaseModel, Base):
     __tablename__ = "interviews"
 
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    content = Column(String(1024), nullable=False)
-    details = Column(Boolean, default=False)
+    resume_link = Column(String(1024), nullable=False)
+    application_link = Column(String(1024), nullable=False)                                     
+    status = Column(String(60), default="Pending" )
+    datails = Column(String(1024))
 
