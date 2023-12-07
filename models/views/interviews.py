@@ -36,6 +36,8 @@ def interviews():
         interviews = models.storage.all(Interview).values()
         return render_template('interviews.html', interviews=interviews)
 
+    return render_template('interviews.html', interviews=[])
+
 @app_views.route('/interview_details<id>', methods=['GET'], strict_slashes=True)
 @login_required
 def interview_details(id):

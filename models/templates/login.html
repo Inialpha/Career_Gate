@@ -4,8 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<body class="text-center text-dark">
-    <div class="container text-dark">
+    <div class="container text-dark min-vh-100">
         <form method="POST" class="form-signin">
             {{ form.hidden_tag() }}
             <h1 class="h3 mb-3 font-weight-normal">
@@ -29,5 +28,4 @@
 
         </form>
     </div>
-</body>
 {% endblock %}

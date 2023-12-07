@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
   $('#resume').submit(function (event) {
     event.preventDefault();
 
@@ -40,5 +40,5 @@ $(function () {
 
 
 });
-
+*/
 

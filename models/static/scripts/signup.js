@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
 	$('.signupbutton').on('click', function () {
 		let firstname = $('.form input[name="firstname"]').val()
 		let lastname = $('.form input[name="lastname"]').val()
@@ -27,4 +27,4 @@ $(function () {
 
 
 	});
-});
+});*/
