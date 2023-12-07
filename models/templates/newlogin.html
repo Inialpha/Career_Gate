@@ -10,18 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-	{% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <div class="{{ category }}">
-                <button type="button" class="close" onclick="this.parentNode.style.display='none'" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
+	{% include 'alert.html' %}
 
 
     <nav style="background-color:white;position: fixed;z-index: 999999;">
