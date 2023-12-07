@@ -16,8 +16,11 @@ def signup():
         data = {'first_name': first_name, 'last_name': last_name,
                 'email': email, 'password': password}
         from models.user import User
-        user = User(**data)
-        user.save()
-        flash("Account created successfully! Please login", category='success')
-        return redirect(url_for('app_views.login'))
+        user = models.storage.get_by_email(email)
+        if not user:
+            user = User(**data)
+            user.save()
+            flash("Account created successfully! Please login", category='success')
+            return redirect(url_for('app_views.login'))
+        flash("Email already in use please try a different email", category="warning")
     return render_template('signup.html', form=form)
