@@ -1,5 +1,5 @@
 from models.views import app_views
-from flask import render_template, redirect, request, flash, url_for
+from flask import render_template, redirect, request, flash, url_for, flash
 from flask_login import current_user, login_required
 import models
 
@@ -10,15 +10,16 @@ def createresume():
     """create a resume"""
     user = current_user
     if request.method == 'POST':
-        resume_link = request.form['link']
+        resume_link = request.form['resume_link']
+        message = request.form.get('resume_link')
         user_id = current_user.id
         data = {'resume_link': resume_link, 'user_id': user_id}
         from models.resume import Resume
         resume = Resume(**data)
         resume.save()
-        return ("Request Successful")
+        flash("Request Successful", category="green")
 
-    return render_template('createresume.html', user=user);
+    return render_template('userdashboard.html', user=user);
 
 @app_views.route('/resumes', methods=['GET'], strict_slashes=True)
 @login_required
