@@ -9,4 +9,4 @@ from flask_login import current_user, login_required
 def homepage():
     """Every users homepage"""
     user = current_user
-    return render_template('homepage.html', user=user);
+    return render_template('userdashboard.html', user=user);
