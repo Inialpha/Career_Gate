@@ -16,7 +16,7 @@
 
         <nav style="background-color:white;z-index: 999999;">
             <div class="container">
-		<a href="{{ url_for('index.html') }}"><img width="9%" src="../static/images/career_logo.png" alt="" class="responsive-img"></a>
+		<a href="{{ url_for('app_views.homepage') }}"><img width="9%" src="../static/images/career_logo.png" alt="" class="responsive-img"></a>
                 <!-- <img width="9%" src="../static/images/career_logo.png" class="responsive-img" alt="there is an image"> -->
                 <img src=",./static/img/IMG-20220903-WA0027.jpg" class="hide-on-med-and-down right circle" style="width: 4%; height:4%; object-fit:cover;" alt="">
                 <img src="../static/img/IMG-20220903-WA0027.jpg" class="hide-on-large-only right circle" style="width: 8%; height: 8%; object-fit: cover; margin-right: 3%;margin-top: 1%;" alt="">
@@ -51,7 +51,11 @@
 
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
-                    <div class="modal-content">
+			<!-- Calendly inline widget begin -->
+			<div class="calendly-inline-widget" data-url="https://calendly.com/inimfonebong/30min" style="min-width:320px;height:700px;"></div>
+			<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+			<!-- Calendly inline widget end -->
+                   <!-- <div class="modal-content">
 		      <form action="{{ url_for('app_views.bookinterview') }}" method="POST">
                             <input type="text" placeholder="link to resume" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="resume_link" required>
 
@@ -68,7 +72,7 @@
 			    </div>
 
                         </form>
-                    </div>
+			</div> --!>
                 </div>
 
                 <div class="col s12 m3 l3">

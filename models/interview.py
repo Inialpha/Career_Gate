@@ -11,7 +11,9 @@ class Interview(BaseModel, Base):
 
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     resume_link = Column(String(1024), nullable=False)
-    application_link = Column(String(1024), nullable=False)                                     
+    application_link = Column(String(1024), nullable=False)
+
     status = Column(String(60), default="Pending" )
     datails = Column(String(1024))
-
+    meeting_password = Column(String(60), nullable=False)
+    meeting_link = Column(String(1024), nullable=False)
