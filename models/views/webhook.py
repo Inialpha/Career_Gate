@@ -56,6 +56,6 @@ def calendly():
 @app_views.route('/calendly-success', methods=['GET', 'POST'], strict_slashes=True)
 def calendly_success():
     """ the route to follow when a meeting is scheduled successfully """
-
+    
 
     return render_template('calendly_success.html')
