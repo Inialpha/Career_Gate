@@ -10,9 +10,10 @@ def createresume():
     """create a resume"""
     user = current_user
     if request.method == 'POST':
-        resume_link = request.form['resume_link']
-        message = request.form.get('resume_link')
+        resume_link = request.form.get('resume_link')
+        message = request.form.get('message')
         user_id = current_user.id
+        print("\n\n", resume_link, message)
         data = {'resume_link': resume_link, 'user_id': user_id}
         from models.resume import Resume
         resume = Resume(**data)
