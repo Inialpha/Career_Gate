@@ -10,7 +10,7 @@ from sqlalchemy import Column, String, ForeignKey, Boolean
 class Resume(BaseModel, Base):
     """Representation of Resume """
     if models.storage_t == 'db':
-        __tablename__ = 'resume'
+        __tablename__ = 'resumes'
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         resume_link = Column(String(1024), nullable=False)
         status = Column(String(60), default="Pending")
