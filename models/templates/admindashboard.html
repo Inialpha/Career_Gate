@@ -35,17 +35,24 @@
 
                     <p>18th March 2024</p>
 
+		    {% if interviews|length < 1 %}
+
+		    <p>You dont have any booking yet</p>
+		    {% else %}
+
                     <ul class="collection">
+			{% for interview in interviews %}
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
                             <span class="title">Title title </span> <br>
                             <span>First Line Lorem, ipsum dolor.</span>
 
-                            <a href="" class=" secondary-content">Consultation link </a>
+			    <a href="{{ interview.meeting_link }}" class=" secondary-content">Consultation link </a>
+			    {% endfor %}
 
                         
-                        </li>
+                        <!--</li>
 
                         <li class="collection-item avatar">
                             <i class="material-icons circle">folder</i>
@@ -53,9 +60,10 @@
                             <p>First Line Lorem, ipsum dolor.</p>
 
                             <a href="" class=" secondary-content">Consultation link </a>
-                        </li>
+			    </li>--!>
 
                     </ul> <br>
+		    {% endif %}
 
                 </div>
 
@@ -65,27 +73,34 @@
 
                     <p>15th March 2024</p>
 
+		    {% if resumes|length < 1 %}
+		    <p>You dont have any CVs to review yet</p>
+		    {% else %}
+
                     <ul class="collection">
+		    {% for resume in resumes %}
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
                             <span class="title">Title title </span> <br>
                             <span>First Line Lorem, ipsum dolor.</span>
 
-                            <a href="" class=" secondary-content">Resume link </a>
+			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link</a>
 
                         
                         </li>
+			{% endfor %}
 
-                        <li class="collection-item avatar">
+                       <!-- <li class="collection-item avatar">
                             <i class="material-icons circle">folder</i>
                             <span class="title">Title title </span>
                             <p>First Line Lorem, ipsum dolor.</p>
 
                             <a href="" class=" secondary-content">Resume link </a>
-                        </li>
+			    </li>--!>
 
                     </ul> <br>
+		    {% endif %}
                             
 
                 </div>
@@ -103,19 +118,24 @@
                     <h5 style="font-weight: bold;">Graduate Resume Review</h5> <br>
 
                     <p>18th March 2024</p>
-
+		    {% if resumes|length < 1 %}
+		    <p>You do not have any graduate CV to review yet</p>
+		    {% else %}
+		
                     <ul class="collection">
+		    	{% for resume in resumes %}
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
                             <span class="title">Title title </span> <br>
                             <span>First Line Lorem, ipsum dolor.</span>
 
-                            <a href="" class=" secondary-content">Resume link </a>
+			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link </a>
 
                         
                         </li>
-
+			{% endfor %}
+			<!--
                         <li class="collection-item avatar">
                             <i class="material-icons circle">folder</i>
                             <span class="title">Title title </span>
@@ -123,8 +143,9 @@
 
                             <a href="" class=" secondary-content">Resume link </a>
                         </li>
-
+				--!>
                     </ul> <br>
+		    {% endif %}
 
                 </div>
 
