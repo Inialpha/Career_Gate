@@ -9,3 +9,4 @@ from models.views.login import *
 from models.views.interviews import *
 from models.views.resume import *
 from models.views.users import *
+from models.views.webhook import *

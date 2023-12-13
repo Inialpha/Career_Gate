@@ -1,4 +1,4 @@
-Flask
+flask
 Jinja2
 MarkupSafe
 mysql-connector-python
@@ -16,4 +16,4 @@ flask_login
 flask_wtf
 requests
 sqlalchemy
-mail_validator
+email_validator

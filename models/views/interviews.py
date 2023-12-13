@@ -11,13 +11,16 @@ def bookinterview():
     if request.method == 'POST':
         resume_link = request.form['resume_link']
         application_link = request.form['application_link']
+        time = request.form.get('time')
+        date = request.form.get('date')
         user_id = current_user.id
         data = {'resume_link': resume_link, 'application_link': application_link, 'user_id': user_id}
         from models.interview import Interview
         interview = Interview(**data)
         interview.save()
-        return ("Booking successful")
-    return render_template('bookinterview.html', user=user)
+        flash("Booking successful")
+        return redirect(url_for('app_views.hompage'))
+    return render_template('userdashboard.html', user=user)
 
 @app_views.route('/interviews', methods=['GET'], strict_slashes=True)
 @login_required

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/materialize/css/materialize.css">
+    <script src="https://kit.fontawesome.com/a278e9af44.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <section style="font-family: Arial, Helvetica, sans-serif;">
+
+        <nav style="background-color:white;z-index: 999999;">
+            <div class="container">
+		<a href="{{ url_for('app_views.homepage') }}"><img width="9%" src="../static/images/career_logo.png" alt="" class="responsive-img"></a>
+                <!-- <img width="9%" src="../static/images/career_logo.png" class="responsive-img" alt="there is an image"> -->
+                <img src=",./static/img/IMG-20220903-WA0027.jpg" class="hide-on-med-and-down right circle" style="width: 4%; height:4%; object-fit:cover;" alt="">
+                <img src="../static/img/IMG-20220903-WA0027.jpg" class="hide-on-large-only right circle" style="width: 8%; height: 8%; object-fit: cover; margin-right: 3%;margin-top: 1%;" alt="">
+                
+            </div>
+        
+        </nav>
+            
+    </section>
+   
+   <div>
+        <div style="margin-left: 10%; margin-right: 10%;">
+		{% include 'alert.html' %}
+            <!-- <h5>Good Morning Kassy!</h5> -->
+            <div class="row" style="margin-top: 3%;">
+                <div class="col s12 m3 l3">
+                    <div class="card">
+                        <div class="card-content ">
+                            <div  style="font-weight: bold;">
+                                One on One Consultaion
+                            </div>
+                            <hr>
+                            <div>
+                               <b>Duration:</b> 1 hour
+                            </div>
+                            <div>
+                                <a class="waves-effect waves-light modal-trigger" href="#modal1">Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+			<!-- Calendly inline widget begin -->
+			<div class="calendly-inline-widget" data-url="https://calendly.com/inimfonebong/30min" style="min-width:320px;height:700px;"></div>
+			<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+			<!-- Calendly inline widget end -->
+                   <!-- <div class="modal-content">
+		      <form action="{{ url_for('app_views.bookinterview') }}" method="POST">
+                            <input type="text" placeholder="link to resume" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="resume_link" required>
+
+                            <input type="text" placeholder="link to application" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="application_link" required>
+
+    
+                            <input type="date" placeholder="Message" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; padding-bottom: 40px; margin-bottom: 20px;" name="date" required>
+
+                            <input type="time" placeholder="Time" class="lop" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="time" required>
+    
+                            <div class="modal-footer">
+			      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
+			      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+			    </div>
+
+                        </form>
+			</div> --!>
+                </div>
+
+                <div class="col s12 m3 l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="font-weight: bold;">
+                                Student Resume
+                            </div>
+                            <hr>
+                            <div>
+                               <b>Duration:</b> 4 weeks
+                            </div>
+                            <div>
+                                <a class="waves-effect waves-light modal-trigger" href="#student">Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="student" class="modal">
+                    <div class="modal-content">
+                        <form action="{{ url_for('app_views.createresume') }}" method="POST">
+                            
+                            <input type="text" placeholder="CV link" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="resume_link" required>
+    
+                            <input type="text" placeholder=" leave a Message" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; padding-bottom: 40px; margin-bottom: 20px;" name="message" required>
+
+			    <div class="modal-footer">
+			      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
+			      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+			    </div>
+			    <input type="hidden" name="type" value="student">
+
+                            
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m3 l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="font-weight: bold;">
+                                Graduate Resume
+                            </div>
+                            <hr>
+                            <div>
+                               <b>Duration:</b> 1 weeks
+                            </div>
+                            <div>
+                                <a class="waves-effect waves-light modal-trigger" href="#gradute">Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+		<div id="graduate" class="modal">
+                    <div class="modal-content">                               <form action="{{ url_for('app_views.createresume') }}" method="POST">
+                            <input type="text" placeholder="CV link" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="resume_link" required>
+                            <input type="text" placeholder=" leave a Message" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; padding-bottom: 40px; margin-bottom: 20px;" name="message" required>                                                                                                                                    <div class="modal-footer">
+                              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
+                              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            </div>
+			    <input type="hidden" name="type" value="graduate">
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col s12 m3 l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="font-weight: bold;">
+                                Cover letter
+                            </div>
+                            <hr>
+                            <div>
+                               <b>Duration:</b> 2 weeks
+                            </div>
+                            <div>
+                                <a class="waves-effect waves-light modal-trigger" href="#modal3">Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                        <form action="" method="POST">
+                            
+                            <input type="text" placeholder="link Cover letter" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="cover_later" required>
+    
+                            <input type="text" placeholder=" leave a Message" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; padding-bottom: 40px; margin-bottom: 20px;" name="message" required>
+
+			    <div class="modal-footer">
+			      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
+			      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+			    </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>      
+   </div>
+
+
+    <div>
+        <div style="margin-left: 10%; margin-right: 10%;">
+            <div class="row">
+                <div class="col s12 m7 l7">
+                    <h5 style="font-weight: bold;">Appointments</h5> <br>
+
+                    <p>18th March 2024</p>
+		    {% if user.interviews|length < 1 %}
+		    <p>You dont have any appointment yet</p>
+		    {% else %}
+
+                    <ul class="collection">
+			    {% for interview in user.interviews %}
+
+                        <li class="collection-item avatar">
+                            <img src="../static/img/A.jpg" alt="" class="circle">
+                            <span class="title">Title: One on One session </span> <br>
+			    <span>Name: {{ user.first_name }} {{ user.last_name }}</span> 
+			    <br>
+			    <span>Date: {{ interview.meeting_date }}
+
+			    <a href="{{ interview.meeting_link }}" class=" secondary-content">Appointment link</a>
+
+                        
+                        </li>
+
+			{% endfor %}
+                    </ul>
+		    {% endif %}
+		    
+		    <br>
+
+                </div>
+
+
+                <div class="col s12 m5 l5">
+                    <h5 style="font-weight: bold;">Upcoming Event</h5> <br>
+
+                    <p>15th March 2024</p>
+
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                    </ul><br>
+                            
+
+                </div>
+
+
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/Materialize.css/css/materialize.css"></script>
+    <script src="../static/Materialize.css/js/jquery.js"></script>
+    <script src="../static/Materialize.css/js/materialize.js"></script>
+    <script>
+            
+        $(document).ready(function(){
+            $('.dropdown-trigger').dropdown();
+            $('.scrollspy').scrollSpy();
+            $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.modal').modal();
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
+    
+</body>
+</html>

@@ -10,7 +10,7 @@ import models.views
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029594d'
-#bcrypt = Bcrypt(app)
+bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "app_views.login"
 login_manager.login_message_category = "info"

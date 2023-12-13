@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/materialize/css/materialize.css">
+    <script src="https://kit.fontawesome.com/a278e9af44.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <section style="font-family: Arial, Helvetica, sans-serif;">
+
+        <nav style="background-color:white;z-index: 999999;">
+            <div class="container">
+		    <a href="{{ url_for('app_views.landingpage') }}"><img width="9%" src="../static/images/career_logo.png" alt="" class="responsive-img"></a>
+                <!-- <img width="9%" src="../static/images/career_logo.png" class="responsive-img" alt="there is an image"> -->
+                <img src="img/IMG-20220903-WA0027.jpg" class="hide-on-med-and-down right circle" style="width: 4%; height:4%; object-fit:cover;" alt="">
+                <img src="img/IMG-20220903-WA0027.jpg" class="hide-on-large-only right circle" style="width: 8%; height: 8%; object-fit: cover; margin-right: 3%;margin-top: 1%;" alt="">
+                
+            </div>
+        
+        </nav>
+            
+    </section>
+   
+
+    <div>
+        <div style="margin-left: 10%; margin-right: 10%;margin-top: 3%;">
+		{% include 'alert.html' %}
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 style="font-weight: bold;">Booked Consulation</h5> <br>
+
+                    <p>18th March 2024</p>
+
+		    {% if interviews|length < 1 %}
+
+		    <p>You dont have any booking yet</p>
+		    {% else %}
+
+                    <ul class="collection">
+			{% for interview in interviews %}
+
+                        <li class="collection-item avatar">
+                            <img src="img/A.jpg" alt="" class="circle">
+			    <span class="title">One on One session </span> <br>
+			    <span>Name: {{ interview.user.first_name }} {{ interview.user.last_name }}</span>
+
+			    <br>                                                  <span>Date: {{ interview.meeting_date }}
+
+			    <a href="{{ interview.meeting_link }}" class=" secondary-content">Consultation link </a>
+			    {% endfor %}
+
+                    </ul> <br>
+		    {% endif %}
+
+                </div>
+
+
+                <div class="col s12 m6 l6">
+                    <h5 style="font-weight: bold;">Student Resume Review</h5> <br>
+
+                    <p>15th March 2024</p>
+
+		    {% if student_resume|length < 1 %}
+		    <p>You dont have any CVs to review yet</p>
+		    {% else %}
+
+                    <ul class="collection">
+		    {% for resume in student_resume %}
+
+                        <li class="collection-item avatar">
+                            <img src="img/A.jpg" alt="" class="circle">
+                            <span class="title">Student CV Review</span> <br>
+			    <span>Name: {{ resume.user.first_name }} {{ resume.user.last_name }}</span>
+			    <br>
+
+			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link</a>
+
+                        
+                        </li>
+			{% endfor %}
+
+                    </ul> <br>
+		    {% endif %}
+                            
+
+                </div>
+
+
+            
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div style="margin-left: 10%; margin-right: 10%;">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 style="font-weight: bold;">Graduate Resume Review</h5> <br>
+
+                    <p>18th March 2024</p>
+		    {% if graduate_resume|length < 1 %}
+		    <p>You do not have any graduate CV to review yet</p>
+		    {% else %}
+		
+                    <ul class="collection">
+		    	{% for resume in graduate_resume %}
+
+                        <li class="collection-item avatar">
+                            <img src="img/A.jpg" alt="" class="circle">
+                            <span class="title">Graduate CV Review</span> <br>
+			    <span>Name: {{ resume.user.first_name }} {{ resume.user.last_name }}</span>                                 <br>
+
+			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link </a>
+
+                        
+                        </li>
+			{% endfor %}
+                    </ul> <br>
+		    {% endif %}
+
+                </div>
+
+
+                <div class="col s12 m6 l6">
+                    <h5 style="font-weight: bold;">Cover Letter Review</h5> <br>
+
+                    <p>15th March 2024</p>
+
+                    <ul class="collection">
+
+                        <li class="collection-item avatar">
+                            <img src="img/A.jpg" alt="" class="circle">
+                            <span class="title">Title title </span> <br>
+                            <span>First Line Lorem, ipsum dolor.</span>
+                            <a href="" class=" secondary-content">Cover Letter link </a>
+                            <!-- <p class=" secondary-content">Cover Letter link </p> -->
+                            
+                        
+                        </li>
+
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle">folder</i>
+                            <span class="title">Title title </span>
+                            <p>First Line Lorem, ipsum dolor.</p>
+
+                            <a href="" class=" secondary-content">Cover Letter link </a>
+                        </li>
+
+                    </ul> <br>
+
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/Materialize.css/css/materialize.css"></script>
+    <script src="../static/Materialize.css/js/jquery.js"></script>
+    <script src="../static/Materialize.css/js/materialize.js"></script>
+    <script>
+            
+        $(document).ready(function(){
+            $('.dropdown-trigger').dropdown();
+            $('.scrollspy').scrollSpy();
+            $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.modal').modal();
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
+    
+</body>
+</html>

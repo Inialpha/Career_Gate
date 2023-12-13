@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="../static/styles/landingpage.css">
+<script type="text/javascript" src="../static/scripts/landingpage.js"></script>
+{% endblock head %}
+{% block content %}
+
+<div class="position-relative text-center mb-20 min-vh-100">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Welcome to your number one career advancement platform.</h1>
+    <img class="w-100" src="/static/images/career_logo.png" alt="company logo">
+    <a href="{{ url_for('app_views.login') }}" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <div class="">
+  <h1><b>Services</b></h1>
+      <img class="w-100" src="../static/images/resume.jpeg" alt="An image of people looking at a resume">
+	  <h3 id="clear"><b>Resume Review</b></h3>
+	  <p id="clear">Do you want to present an industry standard resume to your employer?<br>Let our expert assist you tailor your resume to your employer's test.</p>
+  </article>
+  <article class=services>
+	  <img class="w-100" src="../static/images/interview.jpeg" alt="An image of an employer and employee">
+	  <div>
+    <h3>Interview Booking</h3>
+    <p>Do you want to smash your next interview?<br>Get an industry starndard interview tailored to your specific needs.<br>Get feedbacks and tips from our experts.</p>
+    </div>
+  </article>
+  </div>
+  <article class="shadow-lg services">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+	{% for article in articles %}
+	<a href="{{ article.url }}" class="shadow-lg carousel-item {% if loop.first %}active{% endif %}">
+	  <div class="image-container">
+	  <img class="d-block w-100" src="{{ article['urlToImage'] }}" alt="">
+	  <p class="image-title">{{ article.title }}</p>
+	  </div>
+	</a>
+	{% endfor %}
+      </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+  </article>
+
+    <h3>News</h3>
+	    <p>Get job related news here</p>
+    </div>
+{% endblock content  %}
