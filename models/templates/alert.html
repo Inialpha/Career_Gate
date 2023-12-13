@@ -1,12 +1,10 @@
-
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
 {% for category, message in messages %}
-<div class="card-panel {{ category }} alert" style="position: relative">
-	{{ message }}
-	<button type="button" class="close" onclick="this.parentNode.style.display='none'" aria-label="Close" style="position: absolute; right: 10px;">
-		<span aria-hidden="true">&times;</span>
-	</button>
+<div class="alert card blue center lighten-4 blue-text text-darken-3" style="margin-top: 5%; width: 50%">
+	<div class="card-content">
+		<p><i class="material-icons">info</i> {{ message }}</p>
+	</div>
 </div>
 {% endfor %}
 {% endif %}
