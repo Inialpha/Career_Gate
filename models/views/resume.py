@@ -12,15 +12,16 @@ def createresume():
     if request.method == 'POST':
         resume_link = request.form.get('resume_link')
         message = request.form.get('message')
+        resume_type = request.form.get('type')
         user_id = current_user.id
-        print("\n\n", resume_link, message)
-        data = {'resume_link': resume_link, 'user_id': user_id}
+        print("\n\n", resume_link, message, resume_type)
+        data = {'resume_link': resume_link, 'user_id': user_id, 'resume_type': resume_type}
         from models.resume import Resume
         resume = Resume(**data)
         resume.save()
         flash("Request Successful", category="green")
 
-    return render_template('userdashboard.html', user=user);
+    return redirect(url_for('app_views.homepage'))
 
 @app_views.route('/resumes', methods=['GET'], strict_slashes=True)
 @login_required

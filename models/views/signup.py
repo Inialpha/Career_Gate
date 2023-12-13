@@ -30,7 +30,6 @@ def signup():
         user = models.storage.get_by_email(email)
         if not user:
             user = User(**data)
-            user.user_type = 'admin'
             user.save()
             flash("Account created successfully! Please login", category='success')
             return redirect(url_for('app_views.login'))

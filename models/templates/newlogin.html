@@ -27,9 +27,13 @@
                 <li><a style="color: #016273;" class="" href="index.html">Services</a></li>
                 <li><a style="color: #016273;" class="" href="index.html">Blog</a></li>
                 <li><a style="color: #016273;" class="" href="index.html">Our Team</a></li>
-                <li><a style="color: #016273;" class="" href="index.html">Contact</a></li>
-                <li><a style="color: #016273;" class="" href="newlogin.html">Login</a></li>
-                <li><a style="color: #016273;" class="" href="newsignup.html">Signup</a></li> 
+		<li><a style="color: #016273;" class="" href="index.html">Contact</a></li>
+		{% if current_user.is_authenticated %}
+		<li><a style="color: #016273;" class="" href="{{ url_for('app_views.logout') }}">Logout</a></li>
+		{% else %}
+		<li><a style="color: #016273;" class="" href="{{ url_for('app_views.login') }}">Login</a></li>
+		<li><a style="color: #016273;" class="" href="{{ url_for('app_views.signup') }}">Signup</a></li>
+		{% endif %}
 
             </ul>
         </div>
@@ -43,8 +47,13 @@
         <li><a style="color: #016273;" class="" href="index.html">Blog</a></li>
         <li><a style="color: #016273;" class="" href="index.html">Our Team</a></li>
         <li><a style="color: #016273;" class="" href="index.html">Contact</a></li>
-        <li><a style="color: #016273;" class="" href="newlogin.html">Login</a></li>
-        <li><a style="color: #016273;" class="" href="newsignup.html">Signup</a></li> 
+	{% if current_user.is_authenticated %}
+	<li><a style="color: #016273;" class="" href="{{ url_for('app_views.logout') }}">Logout</a></li>
+	{% else %}
+
+	<li><a style="color: #016273;" class="" href="{{ url_for('app_views.login') }}">Login</a></li>
+	<li><a style="color: #016273;" class="" href="{{ url_for('app_views.signup') }}">Signup</a></li>
+	{% endif %}
     </ul>
 
    <div class="container">
@@ -57,7 +66,7 @@
             <div style="margin-top: 10%;" class="col s12 m6 l6">
                 
 
-                <form action="/login" method="POST">
+		    <form action="{{ url_for('app_views.login') }}" method="POST">
                     <div class="center"> <p style="font-size: 28px;color: #016273;padding-top:5%;">Login to account</p></div>
 
                     <div style="margin-right: 5%;" class="row">

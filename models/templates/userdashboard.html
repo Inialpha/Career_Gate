@@ -86,14 +86,14 @@
                                <b>Duration:</b> 4 weeks
                             </div>
                             <div>
-                                <a class="waves-effect waves-light modal-trigger" href="#modal2">Schedule</a>
+                                <a class="waves-effect waves-light modal-trigger" href="#student">Schedule</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <div id="modal2" class="modal">
+                <div id="student" class="modal">
                     <div class="modal-content">
                         <form action="{{ url_for('app_views.createresume') }}" method="POST">
                             
@@ -105,6 +105,7 @@
 			      <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
 			      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
 			    </div>
+			    <input type="hidden" name="type" value="student">
 
                             
                         </form>
@@ -123,11 +124,25 @@
                                <b>Duration:</b> 1 weeks
                             </div>
                             <div>
-                                <a class="waves-effect waves-light modal-trigger" href="#modal2">Schedule</a>
+                                <a class="waves-effect waves-light modal-trigger" href="#gradute">Schedule</a>
                             </div>
                         </div>
                     </div>
 
+                </div>
+
+		<div id="graduate" class="modal">
+                    <div class="modal-content">                               <form action="{{ url_for('app_views.createresume') }}" method="POST">
+                            <input type="text" placeholder="CV link" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; margin-bottom: 20px;" name="resume_link" required>
+                            <input type="text" placeholder=" leave a Message" style=" border: 1px solid #0b2d4c; padding-left: 8px; border-radius: 3px; padding-bottom: 40px; margin-bottom: 20px;" name="message" required>                                                                                                                                    <div class="modal-footer">
+                              <button type="submit" class="modal-close waves-effect waves-green btn-flat">Schedule</button>
+                              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            </div>
+			    <input type="hidden" name="type" value="graduate">
+
+
+                        </form>
+                    </div>
                 </div>
 
                 <div class="col s12 m3 l3">

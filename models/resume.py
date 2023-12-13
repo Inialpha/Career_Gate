@@ -15,10 +15,7 @@ class Resume(BaseModel, Base):
         resume_link = Column(String(1024), nullable=False)
         status = Column(String(60), default="Pending")
         review = Column(String(1024))
-    else:
-        place_id = ""
-        user_id = ""
-        text = ""
+        resume_type = Column(String(60))
 
     def __init__(self, *args, **kwargs):
         """initializes Review"""
