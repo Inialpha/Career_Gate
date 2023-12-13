@@ -1,7 +1,7 @@
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
 {% for category, message in messages %}
-<div class="alert card blue center lighten-4 blue-text text-darken-3" style="margin-top: 5%;">
+<div class="alert center" style="margin-top: 5%; color: transperant; border: solid 1px #000;">
 	<div class="card-content">
 		<p><i class="material-icons">info</i> {{ message }}</p>
 	</div>

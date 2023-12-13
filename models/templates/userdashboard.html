@@ -124,7 +124,7 @@
                                <b>Duration:</b> 1 weeks
                             </div>
                             <div>
-                                <a class="waves-effect waves-light modal-trigger" href="#gradute">Schedule</a>
+                                <a class="waves-effect waves-light modal-trigger" href="#graduate">Schedule</a>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,6 @@
                 <div class="col s12 m7 l7">
                     <h5 style="font-weight: bold;">Appointments</h5> <br>
 
-                    <p>18th March 2024</p>
 		    {% if user.interviews|length < 1 %}
 		    <p>You dont have any appointment yet</p>
 		    {% else %}
@@ -211,6 +210,21 @@
                         </li>
 
 			{% endfor %}
+			{% for resume in user.resumes %}
+			<li class="collection-item avatar">
+			<img src="img/A.jpg" alt="" class="circle">
+			{% if resume.resume_type == "student" %}
+			<span class="title">Title: Student Resume</span> <br>
+			{% else %}
+			<span class="title">Title: Graduate Resume</span> <br>
+			{% endif %}
+
+			<span>Name: {{ user.first_name }} {{ user.last_name }}</span>
+			<br>
+			<a href="{{ resume.resume_link }}" class=" secondary-content">Resume link </a>
+			</li>
+			{% endfor %}
+
                     </ul>
 		    {% endif %}
 		    
@@ -218,29 +232,33 @@
 
                 </div>
 
+		<div class="col s12 m5 l5">
+		<h5 style="font-weight: bold;">Blog</h5>
+		<br>
+                                                                                                                <ul class="collection">
 
-                <div class="col s12 m5 l5">
-                    <h5 style="font-weight: bold;">Upcoming Event</h5> <br>
+                            <li class="collection-item avatar">
+                                <img src="../static/img/nick-owuor-astro-nic-visuals-wDifg5xc9Z4-unsplash.jpg" alt="" class="circle">
+                                <span style="color: #016273;font-weight: bold;" class="title">LinkedIn</span>
+                                <p style="margin-right:2%;margin-top: -1%;font-size: 14px;font-weight: 500;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis <br>
+                                    <span style="font-weight: 200;font-size: 12px;">7:00Am | Dec 15</span>
+                                                                                                                        </p>
+                                                                                                                    </li>                                                                                   <li class="collection-item avatar">
+                                <img src="../static/img/luis-villasmil-mlVbMbxfWI4-unsplash.jpg" alt="" class="circle">
+                                <span style="color: #016273;font-weight: bold;" class="title">Cover letter</span>                                                                                               <p style="margin-right:2%;margin-top: -1%;font-size: 14px;font-weight: 500;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis <br>
+                                    <span style="font-weight: 200;font-size: 12px;">7:00Am | Dec 15</span>
+                                </p>                                                                                                                                                                        </li>                                                                                   <li class="collection-item avatar">                                                         <img src="../static/img/fredrick-tendong-13aw-Pwdeqk-unsplash.jpg" alt="" class="circle">                                                                                       <span style="color: #016273;font-weight: bold;" class="title">Job</span>
+                                <p style="margin-right:2%;margin-top: -1%;font-size: 14px;font-weight: 500;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis <br>
+                                    <span style="font-weight: 200;font-size: 12px;">7:00Am | Dec 15</span>                                                                                                      </p>                                                                                                                                                                        </li>                                                                                   <li class="collection-item avatar">                                                         <img src="../static/img/campaign-creators-gMsnXqILjp4-un
+splash.jpg" alt="" class="circle">                                                                                      <span style="color: #016273;font-weight: bold;" class="t
+itle">Resume</span>
+                                <p style="margin-right:2%;margin-top: -1%;font-size: 14p
+x;font-weight: 500;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis <br>
+                                    <span style="font-weight: 200;font-size: 12px;">7:00Am | Dec 15</span>
+                                </p>
+                            </li>                                                                               </ul>
 
-                    <p>15th March 2024</p>
-
-                    <ul class="collapsible">
-                        <li>
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
-                    </ul><br>
-                            
-
-                </div>
+                    </div>
 
 
             
