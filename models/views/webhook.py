@@ -15,6 +15,8 @@ def calendly():
     """get event location details"""
     location = scheduled_event.get('location', {})
     meeting_link = location.get('join_url')
+    meeting_date = scheduled_event.get('start_time').rstrip('Z')
+    print(meeting_date)
     password = location.get('data').get('password')
     
     """ rettieve the time the meeting was created """
@@ -42,7 +44,8 @@ def calendly():
             'resume_link': resume_link,
             'application_link': application_link,
             'meeting_link': meeting_link,
-            'meeting_password': password
+            'meeting_password': password,
+            'meeting_date': meeting_date
             }
 
     """ create an Interview instance """

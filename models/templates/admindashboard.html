@@ -29,6 +29,7 @@
 
     <div>
         <div style="margin-left: 10%; margin-right: 10%;margin-top: 3%;">
+		{% include 'alert.html' %}
             <div class="row">
                 <div class="col s12 m6 l6">
                     <h5 style="font-weight: bold;">Booked Consulation</h5> <br>
@@ -45,22 +46,13 @@
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
-                            <span class="title">Title title </span> <br>
-                            <span>First Line Lorem, ipsum dolor.</span>
+			    <span class="title">One on One session </span> <br>
+			    <span>Name: {{ interview.user.first_name }} {{ interview.user.last_name }}</span>
+
+			    <br>                                                  <span>Date: {{ interview.meeting_date }}
 
 			    <a href="{{ interview.meeting_link }}" class=" secondary-content">Consultation link </a>
 			    {% endfor %}
-
-                        
-                        <!--</li>
-
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle">folder</i>
-                            <span class="title">Title title </span>
-                            <p>First Line Lorem, ipsum dolor.</p>
-
-                            <a href="" class=" secondary-content">Consultation link </a>
-			    </li>--!>
 
                     </ul> <br>
 		    {% endif %}
@@ -82,22 +74,15 @@
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
-                            <span class="title">Title title </span> <br>
-                            <span>First Line Lorem, ipsum dolor.</span>
+                            <span class="title">Student CV Review</span> <br>
+			    <span>Name: {{ resume.user.first_name }} {{ resume.user.last_name }}</span>
+			    <br>
 
 			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link</a>
 
                         
                         </li>
 			{% endfor %}
-
-                       <!-- <li class="collection-item avatar">
-                            <i class="material-icons circle">folder</i>
-                            <span class="title">Title title </span>
-                            <p>First Line Lorem, ipsum dolor.</p>
-
-                            <a href="" class=" secondary-content">Resume link </a>
-			    </li>--!>
 
                     </ul> <br>
 		    {% endif %}
@@ -127,23 +112,14 @@
 
                         <li class="collection-item avatar">
                             <img src="img/A.jpg" alt="" class="circle">
-                            <span class="title">Title title </span> <br>
-                            <span>First Line Lorem, ipsum dolor.</span>
+                            <span class="title">Graduate CV Review</span> <br>
+			    <span>Name: {{ resume.user.first_name }} {{ resume.user.last_name }}</span>                                 <br>
 
 			    <a href="{{ resume.resume_link }}" class=" secondary-content">Resume link </a>
 
                         
                         </li>
 			{% endfor %}
-			<!--
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle">folder</i>
-                            <span class="title">Title title </span>
-                            <p>First Line Lorem, ipsum dolor.</p>
-
-                            <a href="" class=" secondary-content">Resume link </a>
-                        </li>
-				--!>
                     </ul> <br>
 		    {% endif %}
 
