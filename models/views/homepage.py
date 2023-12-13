@@ -15,5 +15,14 @@ def homepage():
 
         resumes = models.storage.all(Resume).values()
         interviews = models.storage.all(Interview).values()
-        return render_template('admindashboard.html', user=user, resumes=resumes, interviews=interviews)
+        graduate_resume = []
+        student_resume = []
+
+        for resume in resumes:
+            if resume.resume_type == "graduate":
+                graduate_resume.append(resume)
+            elif resume.resume_type == "student":
+                student_resume.append(resume)
+
+        return render_template('admindashboard.html', user=user, graduate_resume=graduate_resume, student_resume=student_resume, interviews=interviews)
     return render_template('userdashboard.html', user=user);
