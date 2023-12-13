@@ -27,8 +27,8 @@
     </section>
    
    <div>
-	   {% include 'alert.html' %}
         <div style="margin-left: 10%; margin-right: 10%;">
+		{% include 'alert.html' %}
             <!-- <h5>Good Morning Kassy!</h5> -->
             <div class="row" style="margin-top: 3%;">
                 <div class="col s12 m3 l3">
@@ -203,7 +203,7 @@
                             <span class="title">Title: One on One session </span> <br>
                             <span>First Line Lorem, ipsum dolor.</span>
 
-                            <a href="" class=" secondary-content">Appointment link</a>
+			    <a href="{{ interview.meeting_link }}" class=" secondary-content">Appointment link</a>
 
                         
                         </li>
